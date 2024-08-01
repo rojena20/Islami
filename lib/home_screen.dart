@@ -3,8 +3,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:islami/tabs/ahadeth_tab.dart';
 import 'package:islami/tabs/quran_tab.dart';
 import 'package:islami/tabs/radio_tab.dart';
-import 'package:islami/tabs/sebha_tab.dart';
 import 'package:islami/tabs/settings_tab.dart';
+import 'package:islami/tabs/tasbeeh_tab.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String routeName = "HomeScreen";
@@ -91,7 +91,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   List<Widget> tabs = [
     RadioTab(),
-    SebhaTab(),
+    TasbeehTab(),
     AhadethTab(),
     QuranTab(),
     SettingsTab(),
