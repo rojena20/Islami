@@ -5,5 +5,3 @@ void main() {
     debugShowCheckedModeBanner: false,
   ),);
 }
-
-
