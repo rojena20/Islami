@@ -29,6 +29,7 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Scaffold(
         backgroundColor: Colors.transparent,
         appBar: AppBar(
+          elevation: 0.0,
           centerTitle: true,
           backgroundColor: Colors.transparent,
           title: Text(
@@ -49,6 +50,10 @@ class _HomeScreenState extends State<HomeScreen> {
           type: BottomNavigationBarType.shifting,
           selectedItemColor: Colors.black,
           showUnselectedLabels: false,
+          selectedLabelStyle: GoogleFonts.inter(
+            fontSize: 12,
+            fontWeight: FontWeight.w400,
+          ),
           items: [
             BottomNavigationBarItem(
               label: "الراديو",
