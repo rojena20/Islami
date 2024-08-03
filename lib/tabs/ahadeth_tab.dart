@@ -43,34 +43,35 @@ class _AhadethTabState extends State<AhadethTab> {
           color: Color(0xffB7935F),
         ),
         Expanded(
-            child: ListView.builder(
-          itemCount: allAhadeth.length,
-          itemBuilder: (context, index) {
-            return GestureDetector(
-              onTap: () {
-                Navigator.pushNamed(
-                  context,
-                  HadethDetails.routeName,
-                  arguments: HadethModel(
-                    hadethTitle: allAhadeth[index].hadethTitle,
-                    hadethContent: allAhadeth[index].hadethContent,
-                  ),
-                );
-              },
-              child: Container(
-                margin: EdgeInsets.symmetric(vertical: 7.0),
-                child: Text(
-                  "الحديث رقم ${index + 1}",
-                  textAlign: TextAlign.center,
-                  style: GoogleFonts.inder(
-                    fontSize: 25,
-                    fontWeight: FontWeight.w400,
+          child: ListView.builder(
+            itemCount: allAhadeth.length,
+            itemBuilder: (context, index) {
+              return GestureDetector(
+                onTap: () {
+                  Navigator.pushNamed(
+                    context,
+                    HadethDetails.routeName,
+                    arguments: HadethModel(
+                      hadethTitle: allAhadeth[index].hadethTitle,
+                      hadethContent: allAhadeth[index].hadethContent,
+                    ),
+                  );
+                },
+                child: Container(
+                  margin: EdgeInsets.symmetric(vertical: 7.0),
+                  child: Text(
+                    "الحديث رقم ${index + 1}",
+                    textAlign: TextAlign.center,
+                    style: GoogleFonts.inder(
+                      fontSize: 25,
+                      fontWeight: FontWeight.w400,
+                    ),
                   ),
                 ),
-              ),
-            );
-          },
-        ))
+              );
+            },
+          ),
+        ),
       ],
     );
   }
