@@ -45,7 +45,7 @@ class HadethDetails extends StatelessWidget {
               children: [
                 Text(
                   "${model.hadethTitle}",
-                  style: GoogleFonts.inter(
+                  style: GoogleFonts.inder(
                     fontSize: 25,
                     fontWeight: FontWeight.w400,
                   ),

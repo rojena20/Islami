@@ -59,7 +59,7 @@ class _SuraDetailsState extends State<SuraDetails> {
                   children: [
                     Text(
                       "سورة ${model.suraName}",
-                      style: GoogleFonts.inter(
+                      style: GoogleFonts.inder(
                         fontSize: 25,
                         fontWeight: FontWeight.w400,
                       ),
@@ -91,7 +91,7 @@ class _SuraDetailsState extends State<SuraDetails> {
                       return Text(
                         "${verses[index]}(${index+1})",
                         textDirection: TextDirection.rtl,
-                        style: GoogleFonts.inter(
+                        style: GoogleFonts.inder(
                           fontSize: 20,
                           fontWeight: FontWeight.w400,
                         ),

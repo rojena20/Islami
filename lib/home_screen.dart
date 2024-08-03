@@ -50,7 +50,7 @@ class _HomeScreenState extends State<HomeScreen> {
           type: BottomNavigationBarType.shifting,
           selectedItemColor: Colors.black,
           showUnselectedLabels: false,
-          selectedLabelStyle: GoogleFonts.inter(
+          selectedLabelStyle: GoogleFonts.inder(
             fontSize: 12,
             fontWeight: FontWeight.w400,
           ),

@@ -62,7 +62,7 @@ class _AhadethTabState extends State<AhadethTab> {
                 child: Text(
                   "الحديث رقم ${index + 1}",
                   textAlign: TextAlign.center,
-                  style: GoogleFonts.inter(
+                  style: GoogleFonts.inder(
                     fontSize: 25,
                     fontWeight: FontWeight.w400,
                   ),

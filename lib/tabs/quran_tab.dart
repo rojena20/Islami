@@ -320,7 +320,7 @@ class QuranTab extends StatelessWidget {
                       child: Text(
                         versesNumber[index].toString(),
                         textAlign: TextAlign.center,
-                        style: GoogleFonts.inter(
+                        style: GoogleFonts.inder(
                           fontSize: 25,
                           fontWeight: FontWeight.w400,
                         ),
@@ -335,7 +335,7 @@ class QuranTab extends StatelessWidget {
                       child: Text(
                         suraNames[index],
                         textAlign: TextAlign.center,
-                        style: GoogleFonts.inter(
+                        style: GoogleFonts.inder(
                           fontSize: 25,
                           fontWeight: FontWeight.w400,
                         ),
