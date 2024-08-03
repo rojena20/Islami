@@ -80,7 +80,7 @@ class _AhadethTabState extends State<AhadethTab> {
     List<String> ahadeth = hadethFile.split("#");
     for (int i = 0; i < ahadeth.length; i++) {
       String hadeth = ahadeth[i];
-      List<String> hadethLines = hadeth.trim().split("\n");
+      List<String> hadethLines = hadeth.split("\n");
       String title = hadethLines[0];
       hadethLines.removeAt(0);
       List<String> content = hadethLines;
