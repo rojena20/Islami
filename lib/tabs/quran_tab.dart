@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-
+import 'package:islami/my_theme_data.dart';
 import '../models/sura_model.dart';
 import '../sura_details.dart';
 
@@ -252,15 +251,15 @@ class QuranTab extends StatelessWidget {
         Table(
           border: TableBorder(
             top: BorderSide(
-              color: Color(0xffB7935F),
+              color: MyThemeData.primaryColor,
               width: 3.0,
             ),
             bottom: BorderSide(
-              color: Color(0xffB7935F),
+              color: MyThemeData.primaryColor,
               width: 3.0,
             ),
             verticalInside: BorderSide(
-              color: Color(0xffB7935F),
+              color: MyThemeData.primaryColor,
               width: 3.0,
             ),
           ),
@@ -274,10 +273,7 @@ class QuranTab extends StatelessWidget {
                     child: Text(
                       "عدد الآيات",
                       textAlign: TextAlign.center,
-                      style: GoogleFonts.elMessiri(
-                        fontSize: 25,
-                        fontWeight: FontWeight.w600,
-                      ),
+                      style: Theme.of(context).textTheme.titleMedium,
                     ),
                   ),
                 ),
@@ -288,10 +284,7 @@ class QuranTab extends StatelessWidget {
                     child: Text(
                       "إسم السورة",
                       textAlign: TextAlign.center,
-                      style: GoogleFonts.elMessiri(
-                        fontSize: 25,
-                        fontWeight: FontWeight.w600,
-                      ),
+                      style: Theme.of(context).textTheme.titleMedium,
                     ),
                   ),
                 ),
@@ -320,25 +313,19 @@ class QuranTab extends StatelessWidget {
                       child: Text(
                         versesNumber[index].toString(),
                         textAlign: TextAlign.center,
-                        style: GoogleFonts.inder(
-                          fontSize: 25,
-                          fontWeight: FontWeight.w400,
-                        ),
+                        style: Theme.of(context).textTheme.bodyLarge,
                       ),
                     ),
                     Container(
                       height: 45.0,
                       width: 3.0,
-                      color: Color(0xffB7935F),
+                      color: MyThemeData.primaryColor,
                     ),
                     Expanded(
                       child: Text(
                         suraNames[index],
                         textAlign: TextAlign.center,
-                        style: GoogleFonts.inder(
-                          fontSize: 25,
-                          fontWeight: FontWeight.w400,
-                        ),
+                        style: Theme.of(context).textTheme.bodyLarge,
                       ),
                     ),
                   ],

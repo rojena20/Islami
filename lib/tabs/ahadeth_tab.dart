@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 import '../hadeth_details.dart';
 import '../models/hadeth_model.dart';
@@ -29,18 +28,13 @@ class _AhadethTabState extends State<AhadethTab> {
         ),
         Divider(
           thickness: 3.0,
-          color: Color(0xffB7935F),
         ),
         Text(
           "الأحاديث",
-          style: GoogleFonts.elMessiri(
-            fontSize: 25,
-            fontWeight: FontWeight.w600,
-          ),
+          style: Theme.of(context).textTheme.titleMedium,
         ),
         Divider(
           thickness: 3.0,
-          color: Color(0xffB7935F),
         ),
         Expanded(
           child: ListView.builder(
@@ -62,10 +56,7 @@ class _AhadethTabState extends State<AhadethTab> {
                   child: Text(
                     "الحديث رقم ${index + 1}",
                     textAlign: TextAlign.center,
-                    style: GoogleFonts.inder(
-                      fontSize: 25,
-                      fontWeight: FontWeight.w400,
-                    ),
+                    style: Theme.of(context).textTheme.bodyLarge,
                   ),
                 ),
               );

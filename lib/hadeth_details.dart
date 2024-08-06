@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:islami/models/hadeth_model.dart';
+import 'package:islami/my_theme_data.dart';
 
 class HadethDetails extends StatelessWidget {
   static const String routeName = "HadethDetails";
@@ -18,20 +18,13 @@ class HadethDetails extends StatelessWidget {
             fit: BoxFit.fill),
       ),
       child: Scaffold(
-        backgroundColor: Colors.transparent,
         appBar: AppBar(
-          centerTitle: true,
-          backgroundColor: Colors.transparent,
           title: Text(
             "إسلامي",
-            style: GoogleFonts.elMessiri(
-              fontSize: 30,
-              fontWeight: FontWeight.w700,
-            ),
           ),
         ),
         body: Card(
-          color: Color.fromARGB(200, 255, 255, 255),
+          color: MyThemeData.whiteTransparentColor,
           margin: EdgeInsets.symmetric(
             vertical: 15.0,
             horizontal: 20.0,
@@ -45,14 +38,10 @@ class HadethDetails extends StatelessWidget {
               children: [
                 Text(
                   "${model.hadethTitle}",
-                  style: GoogleFonts.inder(
-                    fontSize: 25,
-                    fontWeight: FontWeight.w400,
-                  ),
+                  style: Theme.of(context).textTheme.titleMedium,
                   textAlign: TextAlign.center,
                 ),
                 Divider(
-                  color: Color(0xffB7935F),
                   indent: 30.0,
                   endIndent: 40.0,
                 ),
@@ -63,10 +52,7 @@ class HadethDetails extends StatelessWidget {
                       return Text(
                         content[index],
                         textDirection: TextDirection.rtl,
-                        style: GoogleFonts.inter(
-                          fontSize: 20,
-                          fontWeight: FontWeight.w400,
-                        ),
+                        style: Theme.of(context).textTheme.bodyMedium,
                       );
                     },
                   ),

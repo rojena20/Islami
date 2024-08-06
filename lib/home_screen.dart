@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:islami/my_theme_data.dart';
 import 'package:islami/tabs/ahadeth_tab.dart';
 import 'package:islami/tabs/quran_tab.dart';
 import 'package:islami/tabs/radio_tab.dart';
@@ -27,17 +27,9 @@ class _HomeScreenState extends State<HomeScreen> {
             fit: BoxFit.fill),
       ),
       child: Scaffold(
-        backgroundColor: Colors.transparent,
         appBar: AppBar(
-          elevation: 0.0,
-          centerTitle: true,
-          backgroundColor: Colors.transparent,
           title: Text(
             "إسلامي",
-            style: GoogleFonts.elMessiri(
-              fontSize: 30,
-              fontWeight: FontWeight.w700,
-            ),
           ),
         ),
         body: tabs[selectedIndex],
@@ -47,46 +39,39 @@ class _HomeScreenState extends State<HomeScreen> {
             selectedIndex = value;
             setState(() {});
           },
-          type: BottomNavigationBarType.shifting,
-          selectedItemColor: Colors.black,
-          showUnselectedLabels: false,
-          selectedLabelStyle: GoogleFonts.inder(
-            fontSize: 12,
-            fontWeight: FontWeight.w400,
-          ),
           items: [
             BottomNavigationBarItem(
               label: "الراديو",
               icon: ImageIcon(
                 AssetImage("assets/images/icon_radio.png"),
               ),
-              backgroundColor: Color(0xffB7935F),
+              backgroundColor: MyThemeData.primaryColor,
             ),
             BottomNavigationBarItem(
               label: "التسبيح",
               icon: ImageIcon(
                 AssetImage("assets/images/icon_sebha.png"),
               ),
-              backgroundColor: Color(0xffB7935F),
+              backgroundColor: MyThemeData.primaryColor,
             ),
             BottomNavigationBarItem(
               label: "الأحاديث",
               icon: ImageIcon(
                 AssetImage("assets/images/icon_hadeth.png"),
               ),
-              backgroundColor: Color(0xffB7935F),
+              backgroundColor: MyThemeData.primaryColor,
             ),
             BottomNavigationBarItem(
               label: "القرآن",
               icon: ImageIcon(
                 AssetImage("assets/images/icon_quran.png"),
               ),
-              backgroundColor: Color(0xffB7935F),
+              backgroundColor: MyThemeData.primaryColor,
             ),
             BottomNavigationBarItem(
               label: "الاعدادات",
               icon: Icon(Icons.settings),
-              backgroundColor: Color(0xffB7935F),
+              backgroundColor: MyThemeData.primaryColor,
             ),
           ],
         ),

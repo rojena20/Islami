@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:islami/my_theme_data.dart';
 
 import 'models/sura_model.dart';
 
@@ -29,20 +29,13 @@ class _SuraDetailsState extends State<SuraDetails> {
             fit: BoxFit.fill),
       ),
       child: Scaffold(
-        backgroundColor: Colors.transparent,
         appBar: AppBar(
-          centerTitle: true,
-          backgroundColor: Colors.transparent,
           title: Text(
             "إسلامي",
-            style: GoogleFonts.elMessiri(
-              fontSize: 30,
-              fontWeight: FontWeight.w700,
-            ),
           ),
         ),
         body: Card(
-          color: Color.fromARGB(200, 255, 255, 255),
+          color: MyThemeData.whiteTransparentColor,
           margin: EdgeInsets.symmetric(
             vertical: 15.0,
             horizontal: 20.0,
@@ -59,28 +52,24 @@ class _SuraDetailsState extends State<SuraDetails> {
                   children: [
                     Text(
                       "سورة ${model.suraName}",
-                      style: GoogleFonts.inder(
-                        fontSize: 25,
-                        fontWeight: FontWeight.w400,
-                      ),
+                      style: Theme.of(context).textTheme.bodyLarge,
                     ),
                     Container(
                       margin: EdgeInsets.only(
                         left: 25.0,
                       ),
                       decoration: BoxDecoration(
-                        color: Colors.black,
+                        color: MyThemeData.secondaryColor,
                         borderRadius: BorderRadius.circular(30.0),
                       ),
                       child: Icon(
                         Icons.play_arrow_rounded,
-                        color: Colors.white,
+                        color: MyThemeData.whiteColor,
                       ),
                     ),
                   ],
                 ),
                 Divider(
-                  color: Color(0xffB7935F),
                   indent: 30.0,
                   endIndent: 40.0,
                 ),
@@ -91,10 +80,7 @@ class _SuraDetailsState extends State<SuraDetails> {
                       return Text(
                         "${verses[index]}(${index+1})",
                         textDirection: TextDirection.rtl,
-                        style: GoogleFonts.inder(
-                          fontSize: 20,
-                          fontWeight: FontWeight.w400,
-                        ),
+                        style: Theme.of(context).textTheme.bodyMedium,
                       );
                     },
                   ),
