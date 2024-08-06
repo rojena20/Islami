@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:islami/models/hadeth_model.dart';
 import 'package:islami/my_theme_data.dart';
@@ -20,7 +21,7 @@ class HadethDetails extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           title: Text(
-            "إسلامي",
+            "islami".tr(),
           ),
         ),
         body: Card(
@@ -51,7 +52,7 @@ class HadethDetails extends StatelessWidget {
                     itemBuilder: (context, index) {
                       return Text(
                         content[index],
-                        textDirection: TextDirection.rtl,
+                        textAlign: TextAlign.end,
                         style: Theme.of(context).textTheme.bodyMedium,
                       );
                     },

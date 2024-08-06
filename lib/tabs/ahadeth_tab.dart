@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -30,7 +31,7 @@ class _AhadethTabState extends State<AhadethTab> {
           thickness: 3.0,
         ),
         Text(
-          "الأحاديث",
+          "ahadeth".tr(),
           style: Theme.of(context).textTheme.titleMedium,
         ),
         Divider(
@@ -54,7 +55,7 @@ class _AhadethTabState extends State<AhadethTab> {
                 child: Container(
                   margin: EdgeInsets.symmetric(vertical: 7.0),
                   child: Text(
-                    "الحديث رقم ${index + 1}",
+                    "${'hadeth_number'.tr()} ${index + 1}",
                     textAlign: TextAlign.center,
                     style: Theme.of(context).textTheme.bodyLarge,
                   ),

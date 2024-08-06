@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:islami/my_theme_data.dart';
 
@@ -15,7 +16,7 @@ class ThemeBottomSheet extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                "نهاري",
+                "light".tr(),
                 style: Theme.of(context)
                     .textTheme
                     .bodyMedium
@@ -32,7 +33,7 @@ class ThemeBottomSheet extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                "ليلي",
+                "dark".tr(),
                 style: Theme.of(context)
                     .textTheme
                     .bodyMedium

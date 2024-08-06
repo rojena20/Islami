@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:islami/my_theme_data.dart';
 import 'package:islami/tabs/ahadeth_tab.dart';
@@ -29,7 +30,7 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Scaffold(
         appBar: AppBar(
           title: Text(
-            "إسلامي",
+            "islami".tr(),
           ),
         ),
         body: tabs[selectedIndex],
@@ -41,35 +42,35 @@ class _HomeScreenState extends State<HomeScreen> {
           },
           items: [
             BottomNavigationBarItem(
-              label: "الراديو",
+              label: "radio".tr(),
               icon: ImageIcon(
                 AssetImage("assets/images/icon_radio.png"),
               ),
               backgroundColor: MyThemeData.primaryColor,
             ),
             BottomNavigationBarItem(
-              label: "التسبيح",
+              label: "tasbeeh".tr(),
               icon: ImageIcon(
                 AssetImage("assets/images/icon_sebha.png"),
               ),
               backgroundColor: MyThemeData.primaryColor,
             ),
             BottomNavigationBarItem(
-              label: "الأحاديث",
+              label: "ahadeth".tr(),
               icon: ImageIcon(
                 AssetImage("assets/images/icon_hadeth.png"),
               ),
               backgroundColor: MyThemeData.primaryColor,
             ),
             BottomNavigationBarItem(
-              label: "القرآن",
+              label: "quran".tr(),
               icon: ImageIcon(
                 AssetImage("assets/images/icon_quran.png"),
               ),
               backgroundColor: MyThemeData.primaryColor,
             ),
             BottomNavigationBarItem(
-              label: "الاعدادات",
+              label: "settings".tr(),
               icon: Icon(Icons.settings),
               backgroundColor: MyThemeData.primaryColor,
             ),

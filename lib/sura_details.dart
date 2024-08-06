@@ -1,3 +1,6 @@
+import 'dart:ui';
+
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:islami/my_theme_data.dart';
@@ -31,7 +34,7 @@ class _SuraDetailsState extends State<SuraDetails> {
       child: Scaffold(
         appBar: AppBar(
           title: Text(
-            "إسلامي",
+            "islami".tr(),
           ),
         ),
         body: Card(
@@ -50,10 +53,6 @@ class _SuraDetailsState extends State<SuraDetails> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(
-                      "سورة ${model.suraName}",
-                      style: Theme.of(context).textTheme.bodyLarge,
-                    ),
                     Container(
                       margin: EdgeInsets.only(
                         left: 25.0,
@@ -67,6 +66,10 @@ class _SuraDetailsState extends State<SuraDetails> {
                         color: MyThemeData.whiteColor,
                       ),
                     ),
+                    Text(
+                      "سورة ${model.suraName}",
+                      style: Theme.of(context).textTheme.bodyLarge,
+                    ),
                   ],
                 ),
                 Divider(
@@ -79,7 +82,8 @@ class _SuraDetailsState extends State<SuraDetails> {
                     itemBuilder: (context, index) {
                       return Text(
                         "${verses[index]}(${index+1})",
-                        textDirection: TextDirection.rtl,
+                        textAlign: TextAlign.center,
+                        //textDirection: TextDirection.rtl,
                         style: Theme.of(context).textTheme.bodyMedium,
                       );
                     },
