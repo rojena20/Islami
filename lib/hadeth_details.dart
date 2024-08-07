@@ -2,6 +2,8 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:islami/models/hadeth_model.dart';
 import 'package:islami/my_theme_data.dart';
+import 'package:islami/providers/theme_provider.dart';
+import 'package:provider/provider.dart';
 
 class HadethDetails extends StatelessWidget {
   static const String routeName = "HadethDetails";
@@ -10,12 +12,15 @@ class HadethDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var themeProvider = Provider.of<ThemeProvider>(context);
     var model = ModalRoute.of(context)?.settings.arguments as HadethModel;
     List<String> content = model.hadethContent;
     return Container(
       decoration: BoxDecoration(
         image: DecorationImage(
-            image: AssetImage("assets/images/default_bg.png"),
+            image: themeProvider.mode == ThemeMode.light
+                ? AssetImage("assets/images/default_bg.png")
+                : AssetImage("assets/images/dark_bg.png"),
             fit: BoxFit.fill),
       ),
       child: Scaffold(
@@ -25,7 +30,9 @@ class HadethDetails extends StatelessWidget {
           ),
         ),
         body: Card(
-          color: MyThemeData.whiteTransparentColor,
+          color: themeProvider.mode == ThemeMode.light
+              ? MyThemeData.whiteTransparentColor
+              : MyThemeData.primaryDarkColor,
           margin: EdgeInsets.symmetric(
             vertical: 15.0,
             horizontal: 20.0,
@@ -38,7 +45,9 @@ class HadethDetails extends StatelessWidget {
             child: Column(
               children: [
                 Text(
-                  "${model.hadethTitle}",
+                  context.locale == Locale("ar")
+                      ? model.hadethTitle
+                      : model.englishHadethTitle,
                   style: Theme.of(context).textTheme.titleMedium,
                   textAlign: TextAlign.center,
                 ),

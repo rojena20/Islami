@@ -35,7 +35,6 @@ class MyThemeData {
         fontWeight: FontWeight.w700,
         color: secondaryColor,
       ),
-
     ),
     dividerColor: primaryColor,
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
@@ -64,6 +63,7 @@ class MyThemeData {
       bodyLarge: GoogleFonts.inder(
         fontSize: 25,
         fontWeight: FontWeight.w400,
+        color: secondaryDarkColor,
       ),
       bodyMedium: GoogleFonts.inder(
         fontSize: 20,
@@ -73,6 +73,9 @@ class MyThemeData {
     ),
     appBarTheme: AppBarTheme(
       backgroundColor: Colors.transparent,
+      iconTheme: IconThemeData(
+        color: secondaryDarkColor,
+      ),
       centerTitle: true,
       elevation: 0.0,
       titleTextStyle: GoogleFonts.elMessiri(
@@ -80,7 +83,6 @@ class MyThemeData {
         fontWeight: FontWeight.w700,
         color: secondaryDarkColor,
       ),
-
     ),
     dividerColor: yellowColor,
     bottomNavigationBarTheme: BottomNavigationBarThemeData(

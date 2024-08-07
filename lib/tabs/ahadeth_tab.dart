@@ -1,86 +1,123 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:islami/providers/hadeth_datails_provider.dart';
+import 'package:provider/provider.dart';
 
 import '../hadeth_details.dart';
 import '../models/hadeth_model.dart';
 
-class AhadethTab extends StatefulWidget {
+class AhadethTab extends StatelessWidget {
   AhadethTab({super.key});
 
-  @override
-  State<AhadethTab> createState() => _AhadethTabState();
-}
-
-class _AhadethTabState extends State<AhadethTab> {
-  List<HadethModel> allAhadeth = [];
+  List<String> englishAhadethTitle = [
+    "First Hadeth",
+    "Second Hadeth",
+    "Third Hadeth",
+    "Fourth Hadeth",
+    "Fifth Hadeth",
+    "Sixth Hadeth",
+    "Seventh Hadeth",
+    "Eighth Hadeth",
+    "Ninth Hadeth",
+    "Tenth Hadeth",
+    "Hadeth Eleventh",
+    "Hadeth Twelfth",
+    "Hadeth Thirteenth",
+    "Hadeth Fourteenth",
+    "Hadeth Fifteenth",
+    "Hadeth Sixteenth",
+    "Hadeth Seventeenth",
+    "Hadeth Eighteenth",
+    "Hadeth Nineteenth",
+    "Hadeth Twentieth",
+    "Hadeth Twenty-first",
+    "Hadeth Twenty-second",
+    "Hadeth Twenty-third",
+    "Hadeth Twenty-fourth",
+    "Hadeth Twenty-fifth",
+    "Hadeth Twenty-sixth",
+    "Hadeth Twenty-seventh",
+    "Hadeth Twenty-eighth",
+    "Hadeth Twenty-ninth",
+    "Hadeth Thirtieth",
+    "Hadeth Thirty-first",
+    "Hadeth Thirty-second",
+    "Hadeth Thirty-third",
+    "Hadeth Thirty-fourth",
+    "Hadeth Thirty-fifth",
+    "Hadeth Thirty-sixth",
+    "Hadeth Thirty-seventh",
+    "Hadeth Thirty-eighth",
+    "Hadeth Thirty-ninth",
+    "Hadeth Fortieth",
+    "Hadeth Forty-first",
+    "Hadeth Forty-second",
+    "Hadeth Forty-third",
+    "Hadeth Forty-fourth",
+    "Hadeth Forty-fifth",
+    "Hadeth Forty-sixth",
+    "Hadeth Forty-seventh",
+    "Hadeth Forty-eighth",
+    "Hadeth Forty-ninth",
+    "Hadeth Fiftieth",
+  ];
 
   @override
   Widget build(BuildContext context) {
-    if (allAhadeth.isEmpty) {
-      loadHadethFile();
-    }
-    return Column(
-      children: [
-        Image.asset(
-          "assets/images/hadeth_logo.png",
-          height: 227,
-          width: double.infinity,
-        ),
-        Divider(
-          thickness: 3.0,
-        ),
-        Text(
-          "ahadeth".tr(),
-          style: Theme.of(context).textTheme.titleMedium,
-        ),
-        Divider(
-          thickness: 3.0,
-        ),
-        Expanded(
-          child: ListView.builder(
-            itemCount: allAhadeth.length,
-            itemBuilder: (context, index) {
-              return GestureDetector(
-                onTap: () {
-                  Navigator.pushNamed(
-                    context,
-                    HadethDetails.routeName,
-                    arguments: HadethModel(
-                      hadethTitle: allAhadeth[index].hadethTitle,
-                      hadethContent: allAhadeth[index].hadethContent,
+    return ChangeNotifierProvider(
+      create: (context) => HadethDatailsProvider()..loadHadethFile(),
+      child: Consumer<HadethDatailsProvider>(
+        builder: (context, hadethDetailsProvider, child) => Column(
+          children: [
+            Image.asset(
+              "assets/images/hadeth_logo.png",
+              height: 227,
+              width: double.infinity,
+            ),
+            Divider(
+              thickness: 3.0,
+            ),
+            Text(
+              "ahadeth".tr(),
+              style: Theme.of(context).textTheme.titleMedium,
+            ),
+            Divider(
+              thickness: 3.0,
+            ),
+            Expanded(
+              child: ListView.builder(
+                itemCount: hadethDetailsProvider.allAhadeth.length,
+                itemBuilder: (context, index) {
+                  return GestureDetector(
+                    onTap: () {
+                      Navigator.pushNamed(
+                        context,
+                        HadethDetails.routeName,
+                        arguments: HadethModel(
+                          hadethTitle: hadethDetailsProvider
+                              .allAhadeth[index].hadethTitle,
+                          englishHadethTitle: englishAhadethTitle[index],
+                          hadethContent: hadethDetailsProvider
+                              .allAhadeth[index].hadethContent,
+                        ),
+                      );
+                    },
+                    child: Container(
+                      margin: EdgeInsets.symmetric(vertical: 7.0),
+                      child: Text(
+                        "${'hadeth_number'.tr()} ${index + 1}",
+                        textAlign: TextAlign.center,
+                        style: Theme.of(context).textTheme.bodyLarge,
+                      ),
                     ),
                   );
                 },
-                child: Container(
-                  margin: EdgeInsets.symmetric(vertical: 7.0),
-                  child: Text(
-                    "${'hadeth_number'.tr()} ${index + 1}",
-                    textAlign: TextAlign.center,
-                    style: Theme.of(context).textTheme.bodyLarge,
-                  ),
-                ),
-              );
-            },
-          ),
+              ),
+            ),
+          ],
         ),
-      ],
+      ),
     );
-  }
-
-  loadHadethFile() async {
-    String hadethFile = await rootBundle.loadString("assets/files/ahadeth.txt");
-    List<String> ahadeth = hadethFile.split("#");
-    for (int i = 0; i < ahadeth.length; i++) {
-      String hadeth = ahadeth[i];
-      List<String> hadethLines = hadeth.split("\n");
-      String title = hadethLines[0];
-      hadethLines.removeAt(0);
-      List<String> content = hadethLines;
-      HadethModel hadethModel =
-          HadethModel(hadethTitle: title, hadethContent: content);
-      allAhadeth.add(hadethModel);
-      setState(() {});
-    }
   }
 }

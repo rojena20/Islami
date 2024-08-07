@@ -2,7 +2,9 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:islami/models/sura_informations_model.dart';
 import 'package:islami/my_theme_data.dart';
+import 'package:provider/provider.dart';
 import '../models/sura_model.dart';
+import '../providers/theme_provider.dart';
 import '../sura_details.dart';
 
 class QuranTab extends StatelessWidget {
@@ -12,6 +14,7 @@ class QuranTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var themeProvider = Provider.of<ThemeProvider>(context);
     return Column(
       children: [
         Image.asset(
@@ -22,15 +25,21 @@ class QuranTab extends StatelessWidget {
         Table(
           border: TableBorder(
             top: BorderSide(
-              color: MyThemeData.primaryColor,
+              color: themeProvider.mode == ThemeMode.light
+                  ? MyThemeData.primaryColor
+                  : MyThemeData.yellowColor,
               width: 3.0,
             ),
             bottom: BorderSide(
-              color: MyThemeData.primaryColor,
+              color: themeProvider.mode == ThemeMode.light
+                  ? MyThemeData.primaryColor
+                  : MyThemeData.yellowColor,
               width: 3.0,
             ),
             verticalInside: BorderSide(
-              color: MyThemeData.primaryColor,
+              color: themeProvider.mode == ThemeMode.light
+                  ? MyThemeData.primaryColor
+                  : MyThemeData.yellowColor,
               width: 3.0,
             ),
           ),
@@ -74,6 +83,7 @@ class QuranTab extends StatelessWidget {
                     SuraDetails.routeName,
                     arguments: SuraModel(
                       suraName: suraInformationsModel.suraNames[index],
+                      englishSuraName: suraInformationsModel.englishSuraNames[index],
                       suraIndex: index,
                     ),
                   );
@@ -92,7 +102,9 @@ class QuranTab extends StatelessWidget {
                     Container(
                       height: 45.0,
                       width: 3.0,
-                      color: MyThemeData.primaryColor,
+                      color: themeProvider.mode == ThemeMode.light
+                          ? MyThemeData.primaryColor
+                          : MyThemeData.yellowColor,
                     ),
                     Expanded(
                       child: Text(

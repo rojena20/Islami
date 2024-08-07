@@ -3,12 +3,16 @@ import 'package:flutter/material.dart';
 import 'package:islami/bottom_sheets/language_bottom_sheet.dart';
 import 'package:islami/bottom_sheets/theme_bottom_sheet.dart';
 import 'package:islami/my_theme_data.dart';
+import 'package:provider/provider.dart';
+
+import '../providers/theme_provider.dart';
 
 class SettingsTab extends StatelessWidget {
   SettingsTab({super.key});
 
   @override
   Widget build(BuildContext context) {
+    var themeProvider = Provider.of<ThemeProvider>(context);
     return Padding(
       padding: const EdgeInsets.all(15.0),
       child: Column(
@@ -16,10 +20,14 @@ class SettingsTab extends StatelessWidget {
         children: [
           Text(
             "theme".tr(),
-            style: Theme.of(context)
-                .textTheme
-                .bodyLarge
-                ?.copyWith(fontWeight: FontWeight.bold),
+            style: themeProvider.mode == ThemeMode.light
+                ? Theme.of(context)
+                    .textTheme
+                    .bodyLarge
+                    ?.copyWith(fontWeight: FontWeight.bold)
+                : Theme.of(context).textTheme.bodyLarge?.copyWith(
+                      fontWeight: FontWeight.bold,
+                    ),
           ),
           SizedBox(
             height: 5.0,
@@ -36,16 +44,20 @@ class SettingsTab extends StatelessWidget {
               decoration: BoxDecoration(
                 color: Colors.transparent,
                 border: Border.all(
-                  color: MyThemeData.primaryColor,
+                  color: themeProvider.mode == ThemeMode.light
+                      ? MyThemeData.primaryColor
+                      : MyThemeData.yellowColor,
                 ),
                 borderRadius: BorderRadius.circular(18.0),
               ),
               child: Text(
                 "light".tr(),
-                style: Theme.of(context)
-                    .textTheme
-                    .bodyMedium
-                    ?.copyWith(fontWeight: FontWeight.bold),
+                style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                      fontWeight: FontWeight.bold,
+                      color: themeProvider.mode == ThemeMode.dark
+                          ? MyThemeData.secondaryDarkColor
+                          : MyThemeData.secondaryColor,
+                    ),
               ),
             ),
           ),
@@ -54,10 +66,14 @@ class SettingsTab extends StatelessWidget {
           ),
           Text(
             "language".tr(),
-            style: Theme.of(context)
-                .textTheme
-                .bodyLarge
-                ?.copyWith(fontWeight: FontWeight.bold),
+            style: themeProvider.mode == ThemeMode.light
+                ? Theme.of(context)
+                    .textTheme
+                    .bodyLarge
+                    ?.copyWith(fontWeight: FontWeight.bold)
+                : Theme.of(context).textTheme.bodyLarge?.copyWith(
+                      fontWeight: FontWeight.bold,
+                    ),
           ),
           SizedBox(
             height: 5.0,
@@ -74,16 +90,20 @@ class SettingsTab extends StatelessWidget {
               decoration: BoxDecoration(
                 color: Colors.transparent,
                 border: Border.all(
-                  color: MyThemeData.primaryColor,
+                  color: themeProvider.mode == ThemeMode.light
+                      ? MyThemeData.primaryColor
+                      : MyThemeData.yellowColor,
                 ),
                 borderRadius: BorderRadius.circular(18.0),
               ),
               child: Text(
                 "arabic".tr(),
-                style: Theme.of(context)
-                    .textTheme
-                    .bodyMedium
-                    ?.copyWith(fontWeight: FontWeight.bold),
+                style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                      fontWeight: FontWeight.bold,
+                      color: themeProvider.mode == ThemeMode.dark
+                          ? MyThemeData.secondaryDarkColor
+                          : MyThemeData.secondaryColor,
+                    ),
               ),
             ),
           ),
