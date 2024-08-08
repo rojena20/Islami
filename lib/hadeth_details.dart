@@ -48,7 +48,12 @@ class HadethDetails extends StatelessWidget {
                   context.locale == Locale("ar")
                       ? model.hadethTitle
                       : model.englishHadethTitle,
-                  style: Theme.of(context).textTheme.titleMedium,
+                  style: themeProvider.mode == ThemeMode.light
+                      ? Theme.of(context).textTheme.titleMedium
+                      : Theme.of(context)
+                          .textTheme
+                          .titleMedium
+                          ?.copyWith(color: MyThemeData.yellowColor),
                   textAlign: TextAlign.center,
                 ),
                 Divider(

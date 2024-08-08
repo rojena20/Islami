@@ -175,7 +175,7 @@ class SuraInformationsModel {
     "Al-Hadid",
     "Al-Mujadilah",
     "Al-Hashr",
-    "Al-Mumtahanah",
+    "AlMumtahanah",
     "Al-Saff",
     "Al-Jumu`ah",
     "Al-Munafiqun",
