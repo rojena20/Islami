@@ -15,5 +15,10 @@
   "language": "Language",
   "arabic": "Arabic",
   "english": "English",
-  "quran_radio": "Holy Quran Radio"
+  "quran_radio": "Holy Quran Radio",
+  "praises_number": "Number of praises",
+  "praise_1": "Subhan Allah",
+  "praise_2": "Alhamdulellah",
+  "praise_3": "La Ilaha Illa Allah",
+  "praise_4": "Allah Akbar"
 }
