@@ -6,6 +6,8 @@ import 'package:provider/provider.dart';
 
 import '../hadeth_details.dart';
 import '../models/hadeth_model.dart';
+import '../my_theme_data.dart';
+import '../providers/theme_provider.dart';
 
 class AhadethTab extends StatelessWidget {
   AhadethTab({super.key});
@@ -65,6 +67,8 @@ class AhadethTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var themeProvider = Provider.of<ThemeProvider>(context);
+
     return ChangeNotifierProvider(
       create: (context) => HadethDatailsProvider()..loadHadethFile(),
       child: Consumer<HadethDatailsProvider>(
@@ -77,6 +81,9 @@ class AhadethTab extends StatelessWidget {
             ),
             Divider(
               thickness: 3.0,
+              color: themeProvider.mode == ThemeMode.light
+                  ? MyThemeData.primaryColor
+                  : MyThemeData.yellowColor,
             ),
             Text(
               "ahadeth".tr(),
@@ -84,6 +91,9 @@ class AhadethTab extends StatelessWidget {
             ),
             Divider(
               thickness: 3.0,
+              color: themeProvider.mode == ThemeMode.light
+                  ? MyThemeData.primaryColor
+                  : MyThemeData.yellowColor,
             ),
             Expanded(
               child: ListView.builder(

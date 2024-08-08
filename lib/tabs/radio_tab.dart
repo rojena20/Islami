@@ -18,14 +18,14 @@ class RadioTab extends StatelessWidget {
         ),
         Image.asset("assets/images/radio_image.png"),
         SizedBox(
-          height: 20.0,
+          height: 40.0,
         ),
         Text(
           "quran_radio".tr(),
           style: Theme.of(context).textTheme.titleMedium,
         ),
         SizedBox(
-          height: 20.0,
+          height: 30.0,
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,

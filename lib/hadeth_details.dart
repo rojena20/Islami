@@ -54,6 +54,9 @@ class HadethDetails extends StatelessWidget {
                 Divider(
                   indent: 30.0,
                   endIndent: 40.0,
+                  color: themeProvider.mode == ThemeMode.light
+                      ? MyThemeData.primaryColor
+                      : MyThemeData.yellowColor,
                 ),
                 Expanded(
                   child: ListView.builder(

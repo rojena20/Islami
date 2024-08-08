@@ -51,7 +51,9 @@ class SettingsTab extends StatelessWidget {
                 borderRadius: BorderRadius.circular(18.0),
               ),
               child: Text(
-                "light".tr(),
+                themeProvider.mode == ThemeMode.light
+                    ? "light".tr()
+                    : "dark".tr(),
                 style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                       fontWeight: FontWeight.bold,
                       color: themeProvider.mode == ThemeMode.dark
@@ -97,7 +99,7 @@ class SettingsTab extends StatelessWidget {
                 borderRadius: BorderRadius.circular(18.0),
               ),
               child: Text(
-                "arabic".tr(),
+                context.locale == Locale("ar") ? "arabic".tr() : "english".tr(),
                 style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                       fontWeight: FontWeight.bold,
                       color: themeProvider.mode == ThemeMode.dark
